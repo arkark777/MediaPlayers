@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/FirstFragment"
+        android:title="Media" />
+
+    <item android:id="@+id/SecondFragment"
+        android:visible="true"
+        android:title="Exo"/>
+
+    <item android:id="@+id/blankFragment"
+        android:visible="true"
+        android:title="Ijk-H"/>
+
+    <item android:id="@+id/blankFragment2"
+        android:title="Ijk-S"/>
+</menu>
