@@ -20,7 +20,6 @@ class LauncherActivity : AppCompatActivity() {
         if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
             startActivity(Intent(this, MainActivity::class.java))
         } else {
-            NPNp
             requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 87)
         }
     }

@@ -46,7 +46,7 @@ class FirstFragment : Fragment() {
                 mSurface = Surface(surface)
                 mediaPlayer.apply {
                     setSurface(mSurface)
-                    setDataSource(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath+"/cc.m4v")
+                    setDataSource(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath+"/test.mp4")
                     //setDataSource("storge/emulated/0/77355_2.mp3")
                     prepareAsync()
                     setOnPreparedListener {

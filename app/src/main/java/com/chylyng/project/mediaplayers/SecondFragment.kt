@@ -2,24 +2,14 @@ package com.chylyng.project.mediaplayers
 
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.lifecycle.lifecycleScope
-import androidx.media2.exoplayer.external.ExoPlayerFactory
-import androidx.navigation.fragment.findNavController
-import com.google.android.exoplayer2.ExoPlayer
+import androidx.fragment.app.Fragment
 import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.rtsp.RtspMediaSource
+import com.google.android.exoplayer2.ui.AspectRatioFrameLayout.RESIZE_MODE_FILL
 import com.google.android.exoplayer2.ui.PlayerView
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -40,28 +30,24 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         playerView = requireActivity().findViewById<PlayerView>(R.id.playerView)
-        playerView2 = requireActivity().findViewById<PlayerView>(R.id.pl2)
-        requireActivity().findViewById<Button>(R.id.bt2).setOnClickListener {
-            exoPlayer.release()
-        }
+        //playerView2 = requireActivity().findViewById<PlayerView>(R.id.pl2)
+//        requireActivity().findViewById<Button>(R.id.bt2).setOnClickListener {
+//            exoPlayer.release()
+//        }
         exoPlayer = SimpleExoPlayer.Builder(requireActivity()).build()
-        exoPlayer2 = SimpleExoPlayer.Builder(requireActivity()).build()
 
         exoPlayer.apply {
-            playWhenReady = false
+            playWhenReady = true
             setMediaItem(
-                MediaItem.fromUri(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath+"/cc.m4v")
+                MediaItem.fromUri(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath+"/test.mp4")
 
             )
-            play()
-            lifecycleScope.launch {
-                delay(8000L)
-                prepare()
-            }
-
 
         }
         playerView.player = exoPlayer
+        playerView.useController = false
+        playerView.resizeMode = RESIZE_MODE_FILL
+        exoPlayer.prepare()
 //        exoPlayer2.apply {
 //            playWhenReady = false
 //            setMediaItem(

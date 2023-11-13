@@ -71,7 +71,7 @@ class BlankFragment2 : Fragment() {
                     )
                     setSurface(mSurface)
                     isLooping = true
-                    dataSource = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath+"/cc.m4v")
+                    dataSource = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath+"/test.mp4")
                     prepareAsync()
                     setOnPreparedListener {
                         it.start()
